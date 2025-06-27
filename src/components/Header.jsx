@@ -101,7 +101,10 @@ const Header = () => {
         <nav className="hidden lg:flex gap-4 items-center">
           <FaRegHeart className="cursor-pointer hover:text-red-500" size={22} />
           <Link to="/cart">
-            <BsCart3 className="cursor-pointer hover:text-green-400" size={22} />
+            <BsCart3
+              className="cursor-pointer hover:text-green-400"
+              size={22}
+            />
           </Link>
           <FiUser className="cursor-pointer hover:text-gray-700" size={22} />
         </nav>
@@ -122,9 +125,15 @@ const Header = () => {
             <li className="cursor-pointer hover:text-blue-600">Blog</li>
           </ul>
           <nav className="flex gap-4 items-center mt-4">
-            <FaRegHeart className="cursor-pointer hover:text-red-500" size={22} />
+            <FaRegHeart
+              className="cursor-pointer hover:text-red-500"
+              size={22}
+            />
             <Link to="/cart">
-              <BsCart3 className="cursor-pointer hover:text-green-600" size={22} />
+              <BsCart3
+                className="cursor-pointer hover:text-green-600"
+                size={22}
+              />
             </Link>
             <FiUser className="cursor-pointer hover:text-gray-700" size={22} />
           </nav>
