@@ -13,7 +13,11 @@ const ShoppingDetailPage = () => {
 
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { data: products, error, isLoading } = useSelector((state) => state.product);
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useSelector((state) => state.product);
   const { addToCart } = useCartStore();
 
   useEffect(() => {
@@ -50,7 +54,9 @@ const ShoppingDetailPage = () => {
 
         <div className="flex-1 flex flex-col gap-5">
           <h1 className="text-3xl font-bold">{prod.title}</h1>
-          <span className="text-black font-semibold text-lg">${prod.price}</span>
+          <span className="text-black font-semibold text-lg">
+            ${prod.price}
+          </span>
 
           <div className="flex items-center gap-2">
             <span>Select color:</span>
@@ -69,7 +75,9 @@ const ShoppingDetailPage = () => {
                     ? "bg-yellow-400"
                     : "bg-gray-200"
                 } ${
-                  selectedColor === color ? "ring-2 ring-offset-2 ring-black" : ""
+                  selectedColor === color
+                    ? "ring-2 ring-offset-2 ring-black"
+                    : ""
                 }`}
               />
             ))}
@@ -139,12 +147,10 @@ const ShoppingDetailPage = () => {
           </div>
         </div>
       </div>
-        <div className="bg-gray-100 pt-15 pb-15">
+      <div className="bg-gray-100 pt-15 pb-15">
         <div className="bg-white  p-6 container mx-auto  rounded-lg ">
-          {/* Title */}
           <h2 className="text-2xl font-semibold mb-4">Details</h2>
 
-          {/* Description */}
           <p className="text-gray-600 text-sm leading-relaxed mb-6">
             Just as a book is judged by its cover, the first thing you notice
             when you pick up a modern smartphone is the display. Nothing
@@ -158,7 +164,6 @@ const ShoppingDetailPage = () => {
             for many.
           </p>
 
-          {/* Screen Info */}
           <div className="mb-6">
             <h3 className="text-xl font-semibold mb-3">Screen</h3>
             <div className="grid grid-cols-2 border-t border-gray-200 text-sm">
@@ -204,7 +209,6 @@ const ShoppingDetailPage = () => {
             </div>
           </div>
 
-          {/* CPU Info */}
           <div>
             <h3 className="text-xl font-semibold mb-3">CPU</h3>
             <div className="grid grid-cols-2 border-t border-gray-200 text-sm">
@@ -220,7 +224,6 @@ const ShoppingDetailPage = () => {
             </div>
           </div>
 
-          {/* View More Button */}
           <div className="text-center mt-6">
             <button
               onClick={() => setShowMore(!showMore)}
@@ -387,4 +390,3 @@ const ShoppingDetailPage = () => {
 };
 
 export default ShoppingDetailPage;
-

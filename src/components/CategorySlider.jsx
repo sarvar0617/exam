@@ -69,7 +69,7 @@ const CategorySlider = () => {
           ))}
         </Swiper>
 
-        {/* Navigatsiya tugmalari */}
+       
       </div>
     </div>
   );

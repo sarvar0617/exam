@@ -12,12 +12,10 @@ const Header = () => {
   return (
     <div className="bg-white shadow-md sticky top-0 z-50">
       <div className="container  bg-white mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
         <div className="flex items-center gap-4">
           <img src={logo} alt="Logo" className="h-10" />
         </div>
 
-        {/* Search Box */}
         <div className="hidden md:flex bg-gray-100 rounded items-center px-3 py-2 w-[360px]">
           <IoSearchOutline size={20} className="text-gray-500" />
           <input
@@ -26,7 +24,7 @@ const Header = () => {
             placeholder="Search"
           />
         </div>
-        {/* Desktop Nav Links */}
+
         <ul className="hidden lg:flex gap-6 text-base font-medium text-gray-700">
           <li className="cursor-pointer hover:text-blue-600">
             <Link to="/">Home</Link>
@@ -36,7 +34,6 @@ const Header = () => {
           <li className="cursor-pointer hover:text-blue-600">Blog</li>
         </ul>
 
-        {/* Desktop Icons */}
         <nav className="hidden lg:flex gap-4 items-center">
           <FaRegHeart className="cursor-pointer hover:text-red-500" size={22} />
           <Link to="cart">
@@ -48,7 +45,6 @@ const Header = () => {
           <FiUser className="cursor-pointer hover:text-gray-700" size={22} />
         </nav>
 
-        {/* Burger Icon for < lg */}
         <div className="lg:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
@@ -56,7 +52,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu (shown when < lg) */}
       {menuOpen && (
         <div className="lg:hidden bg-white px-4 pb-4 border-t">
           <div className="flex md:hidden lg:hidden bg-gray-100 rounded items-center px-3 py-2 my-3">
@@ -79,7 +74,6 @@ const Header = () => {
               size={22}
             />
             <Link to="cart">
-              {" "}
               <BsCart3
                 className="cursor-pointer hover:text-green-600"
                 size={22}

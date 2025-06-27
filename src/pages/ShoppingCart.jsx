@@ -17,7 +17,6 @@ const ShoppingCart = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-        {/* Shopping Cart */}
         <div className="lg:col-span-2 bg-white p-4 sm:p-6 rounded-2xl shadow">
           <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">
             Shopping Cart
@@ -76,7 +75,6 @@ const ShoppingCart = () => {
           )}
         </div>
 
-        {/* Order Summary */}
         <div className="bg-white p-4 sm:p-6 rounded-2xl shadow">
           <h2 className="text-lg sm:text-xl font-semibold mb-4">
             Order Summary

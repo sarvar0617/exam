@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../redux/productSlice";
 
@@ -13,6 +13,11 @@ import ipad from "../assets/images/ipad.svg";
 import samsung from "../assets/images/samsing.svg";
 import mcbok from "../assets/images/mcbok.svg";
 import banner from "../assets/images/footbanner.svg";
+import iphonee from "../assets/iphonee.svg";
+import playstationn from "../assets/playstation.svg";
+import airpodss from "../assets/airpods.svg";
+import macboook from "../assets/mackbook.svg";
+import visionn from "../assets/vision.svg";
 import { Link } from "react-router-dom";
 const Home = () => {
   const {
@@ -25,7 +30,15 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchProduct());
   }, [dispatch]);
+  const [isMd, setIsMd] = useState(window.innerWidth >= 768);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMd(window.innerWidth >= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div>
       <div>
@@ -33,7 +46,7 @@ const Home = () => {
           <div className="bg-[#1c1c1e] text-white pt-[67px]">
             <div className="container mx-auto px-6">
               <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-                <div className="md:w-1/2">
+                <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
                   <p className="text-gray-400">Pro.Beyond.</p>
                   <h1 className="text-5xl font-light">
                     iPhone 14 <span className="font-bold">Pro</span>
@@ -46,18 +59,23 @@ const Home = () => {
                   </button>
                 </div>
                 <img
-                  src={iphone}
+                  src={isMd ? iphone : iphonee}
                   alt="iPhone 14 Pro"
                   className="md:w-1/3 w-full"
                 />
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2 ">
-              <div className="bg-white text-black pt-6 flex items-center gap-6  ">
-                <img src={playstation} alt="PlayStation 5" className="" />
-                <div>
+
+          <div className="flex flex-col xl:flex-row">
+            <div className="w-full xl:w-1/2 flex-row">
+              <div className="bg-white text-black pt-6 md:py-0 py-6 flex t items-center gap-6 md:flex-row flex-col">
+                <img
+                  src={isMd ? playstation : playstationn}
+                  alt="PlayStation 5"
+                  className=""
+                />
+                <div className="text-center md:text-left">
                   <h2 className="text-3xl font-semibold mb-2">Playstation 5</h2>
                   <p className="text-gray-600 text-sm">
                     Incredibly powerful CPUs, GPUs, and an SSD with integrated
@@ -66,9 +84,13 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex ">
-                <div className="bg-gray-100 text-black py-6 flex items-center gap-4   w-1/2">
-                  <img src={airpods} alt="AirPods Max" className="" />
+              <div className="flex flex-col md:flex-row  mt-6 w-full">
+                <div className="bg-gray-100 text-black py-6 flex h-80 md:h-auto gap-5 flex-col md:flex-row md:text-left text-center items-center  w-full md:w-1/2">
+                  <img
+                    src={isMd ? airpods : airpodss}
+                    alt="AirPods Max"
+                    className=""
+                  />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">
                       Apple AirPods Max
@@ -79,8 +101,12 @@ const Home = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#1c1c1e] text-white  flex items-center gap-4   w-1/2">
-                  <img src={vision} alt="Vision Pro" className="" />
+                <div className="bg-[#1c1c1e] text-white flex items-center gap-5 flex-col md:flex-row md:text-left text-center w-full h-80 md:h-auto md:w-1/2">
+                  <img
+                    src={isMd ? vision : visionn}
+                    alt="Vision Pro"
+                    className=""
+                  />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">
                       Apple Vision <span className="font-bold">Pro</span>
@@ -93,9 +119,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="md:w-1/2 ">
-              <div className="bg-gray-100 text-black py-8 pl-8 flex items-center justify-between   h-full">
-                <div className="max-w-md">
+            <div className="xl:w-1/2 w-full">
+              <div className="bg-gray-100 text-black flex-col md:flex-row  py-8 pl-8 flex items-center  justify-between h-full">
+                <div className="max-w-md flex flex-col items-center md:items-start text-center md:text-left">
                   <h2 className="text-3xl font-light">
                     Macbook <span className="font-semibold">Air</span>
                   </h2>
@@ -107,7 +133,11 @@ const Home = () => {
                     Shop Now
                   </button>
                 </div>
-                <img src={macbook} alt="Macbook Air" className=" " />
+                <img
+                  src={isMd ? macbook : macboook}
+                  alt="Macbook Air"
+                  className=""
+                />
               </div>
             </div>
           </div>

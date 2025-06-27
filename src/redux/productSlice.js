@@ -8,14 +8,14 @@ const initialState = {
 export const fetchProduct = createAsyncThunk(
   "fetchProduct",
   async (_, thunkAPI) => {
-    // params talab qilinmaydi
+   
     try {
       const res = await api.get("/products?limit=100");
-      console.log("✅ API response for GET /products:", res.data.products);
+      console.log( res.data.products);
 
       return res.data.products;
     } catch (err) {
-      console.error("❌ fetchProduct error", err);
+      console.error(err);
       return thunkAPI.rejectWithValue(err.response?.data || err.message);
     }
   }

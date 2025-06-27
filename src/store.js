@@ -5,6 +5,5 @@ export const store = configureStore({
   reducer: {
     product: ProductReducer,
     cart: cartReducer,
-   
   },
 });
