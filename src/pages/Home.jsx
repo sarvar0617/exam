@@ -265,13 +265,15 @@ const Home = () => {
                 key={product.id}
                 className="w-full max-w-[268px] h-80 md:h-auto bg-gray-100 rounded-xl shadow-md p-4 hover:shadow-lg transition mx-auto flex flex-col"
               >
-                <div className="w-full h-[160px] sm:h-[200px] overflow-hidden rounded-md">
-                  <img
-                    src={product.images[0]}
-                    alt={product.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <Link to={`/product/${product.id}`}>
+                  <div className="w-full h-[160px] sm:h-[200px] overflow-hidden rounded-md">
+                    <img
+                      src={product.images[0]}
+                      alt={product.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </Link>
                 <div className="flex-grow mt-4 flex flex-col justify-between items-center text-center gap-3">
                   <h1 className="font-semibold text-sm sm:text-md min-h-[36px] sm:min-h-[48px] line-clamp-2">
                     {product.title}

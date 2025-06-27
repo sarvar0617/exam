@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../redux/productSlice";
+import { Link } from "react-router-dom";
 
 const CategorySlider = () => {
   const dispatch = useDispatch();
@@ -55,21 +56,21 @@ const CategorySlider = () => {
         >
           {uniqueCategories.map((item) => (
             <SwiperSlide key={item.id}>
-              <div className="bg-gray-100 h-[180px] w-full p-4 flex flex-col items-center justify-center rounded-lg cursor-pointer hover:bg-gray-200 transition">
-                <img
-                  src={item.images[0]}
-                  alt={item.category}
-                  className="h-16 w-16 object-contain mb-3"
-                />
-                <p className="text-sm font-semibold text-center capitalize">
-                  {item.category}
-                </p>
-              </div>
+              <Link className="w-full" to={`/category/${item.category}`}>
+                <div className="bg-gray-100 h-[180px] w-full p-4 flex flex-col items-center justify-center rounded-lg cursor-pointer hover:bg-gray-200 transition">
+                  <img
+                    src={item.images[0]}
+                    alt={item.category}
+                    className="h-16 w-16 object-contain mb-3"
+                  />
+                  <p className="text-sm font-semibold text-center capitalize">
+                    {item.category}
+                  </p>
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
-
-       
       </div>
     </div>
   );

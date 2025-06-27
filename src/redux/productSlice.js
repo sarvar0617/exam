@@ -8,10 +8,9 @@ const initialState = {
 export const fetchProduct = createAsyncThunk(
   "fetchProduct",
   async (_, thunkAPI) => {
-   
     try {
-      const res = await api.get("/products?limit=100");
-      console.log( res.data.products);
+      const res = await api.get("/products?limit=200");
+      console.log(res.data.products);
 
       return res.data.products;
     } catch (err) {

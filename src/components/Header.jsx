@@ -12,10 +12,11 @@ const Header = () => {
   return (
     <div className="bg-white shadow-md sticky top-0 z-50">
       <div className="container  bg-white mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <img src={logo} alt="Logo" className="h-10" />
-        </div>
-
+        <Link to="/" className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            <img src={logo} alt="Logo" className="h-10" />
+          </div>
+        </Link>
         <div className="hidden md:flex bg-gray-100 rounded items-center px-3 py-2 w-[360px]">
           <IoSearchOutline size={20} className="text-gray-500" />
           <input
