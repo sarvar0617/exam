@@ -4,13 +4,14 @@ import { FaRegHeart } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div>
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="bg-white shadow-md sticky top-0 z-50">
+      <div className="container  bg-white mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-4">
           <img src={logo} alt="Logo" className="h-10" />
@@ -27,7 +28,9 @@ const Header = () => {
         </div>
         {/* Desktop Nav Links */}
         <ul className="hidden lg:flex gap-6 text-base font-medium text-gray-700">
-          <li className="cursor-pointer hover:text-blue-600">Home</li>
+          <li className="cursor-pointer hover:text-blue-600">
+            <Link to="/">Home</Link>
+          </li>
           <li className="cursor-pointer hover:text-blue-600">About</li>
           <li className="cursor-pointer hover:text-blue-600">Contact Us</li>
           <li className="cursor-pointer hover:text-blue-600">Blog</li>
@@ -36,7 +39,12 @@ const Header = () => {
         {/* Desktop Icons */}
         <nav className="hidden lg:flex gap-4 items-center">
           <FaRegHeart className="cursor-pointer hover:text-red-500" size={22} />
-          <BsCart3 className="cursor-pointer hover:text-green-600" size={22} />
+          <Link to="cart">
+            <BsCart3
+              className="cursor-pointer hover:text-green-400 "
+              size={22}
+            />
+          </Link>
           <FiUser className="cursor-pointer hover:text-gray-700" size={22} />
         </nav>
 
@@ -70,10 +78,13 @@ const Header = () => {
               className="cursor-pointer hover:text-red-500"
               size={22}
             />
-            <BsCart3
-              className="cursor-pointer hover:text-green-600"
-              size={22}
-            />
+            <Link to="cart">
+              {" "}
+              <BsCart3
+                className="cursor-pointer hover:text-green-600"
+                size={22}
+              />
+            </Link>
             <FiUser className="cursor-pointer hover:text-gray-700" size={22} />
           </nav>
         </div>

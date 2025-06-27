@@ -7,12 +7,13 @@ const initialState = {
 };
 export const fetchProduct = createAsyncThunk(
   "fetchProduct",
-  async (_, thunkAPI) => { // params talab qilinmaydi
+  async (_, thunkAPI) => {
+    // params talab qilinmaydi
     try {
-      const res = await api.get("/products");
-      console.log("✅ API response for GET /products:", res.data);
-      // faraz qilaylik res.data.contents yoki res.data.products kabi tuzilma bor:
-      return res.data.contents ?? res.data.products ?? [];
+      const res = await api.get("/products?limit=100");
+      console.log("✅ API response for GET /products:", res.data.products);
+
+      return res.data.products;
     } catch (err) {
       console.error("❌ fetchProduct error", err);
       return thunkAPI.rejectWithValue(err.response?.data || err.message);
